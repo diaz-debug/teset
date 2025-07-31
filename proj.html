@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            background-color: #f4f4f4;
+            display: grid;
+            grid-template-columns: 300px auto 100px;
+            grid-template-rows: 80px auto 100px;
+            gap: 10px;
+        }
+
+        .logo {
+            grid-column: 1 / 2;
+            grid-row: 1 / 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 50px;
+            color: black;
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .top-text {
+            grid-column: 2 / 3;
+            grid-row: 1 / 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .map {
+            grid-column: 1 / 2;
+            grid-row: 2 / 4;
+            background-color: #ddd;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .map p {
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .card-section{
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .card{
+            width: 50%;
+            height: 90%;
+            background-color: white;
+            border: none;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .card .cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px 15px 0px 0px;
+        }
+
+        .card h2 {
+            margin: 10px 0 4px;
+        }
+
+        .card .rating {
+            color: #ff9800;
+            font-weight: bold;
+        }
+
+        .card .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 5px 10px;
+        }
+
+        .card .tag {
+            background-color: #fbd374;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 15px;
+            color: #5e4200;
+        }
+
+        .card p {
+            font-size: 14px;
+            margin-bottom: 16px;
+            padding: 0 12px;
+        }
+
+        .buttons {
+            grid-column: 2 / 3;
+            grid-row: 3 / 4;
+            display: flex;
+            justify-content: center;
+            gap: 200px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .buttons button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            background-color: #333;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar {
+            grid-column: 3 / 4;
+            grid-row: 1 / 4;
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            padding: 10px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sidebar button {
+            flex: 1;
+            background-color: #c3bcd7;
+            border-radius: 15px 0px 0px 15px;
+            border: 3px solid #5b33c1;      
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            font-size: 18px;
+            writing-mode: vertical-rl;
+        }
+
+        .sidebar button:active {
+            transform: scale(1.1);
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">美食Tinder</div>
+    <div class="top-text">現在位置：中國文化大學推廣教育部大安分部</div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.2196665937113!2d121.53114180000001!3d25.0266183!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a91752bff329%3A0xff641e0bf1770998!2z5Lit5ZyL5paH5YyW5aSn5a245o6o5buj5pWZ6IKy6YOo5aSn5a6J5YiG6YOo!5e0!3m2!1sen!2stw!4v1753509332616!5m2!1sen!2stw" allowfullscreen=""></iframe>
+        <p>Address Info</p>
+    </div>
+    <div class="card-section">
+        <button class="card">
+            <img src="https://www.mahobeefnoodles.com/uploads/1/2/6/1/126147723/mah-3_orig.jpg" alt="Restaurant Cover" class="cover">
+            <h2>巷口那間牛肉麵</h2>
+            <div class="rating">★★★★☆</div>
+            <div class="tags">
+                <span class="tag">主餐美味</span>
+                <span class="tag">湯頭濃郁</span>
+                <span class="tag">CP值高</span>
+                <span class="tag">服務待加強</span>
+            </div>
+            <p>台北市大安區</p>
+        </button>
+    </div>
+    <div class="buttons">
+        <button>❌</button>
+        <button>❤️</button>
+    </div>
+    <div class="sidebar">
+        <button>主 頁</button>
+        <button>探 索</button>
+        <button>配 對</button>
+        <button>個 人</button>
+    </div>
+</body>
+</html>

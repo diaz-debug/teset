@@ -1,0 +1,32 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: practice_mysql
+    # restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: practice_db
+      MYSQL_USER: practice_user
+      MYSQL_PASSWORD: practicepassword
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER_PRIVILEGES: "SELECT,INSERT,UPDATE,DELETE"  # 指定權限
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      # - ./second.sql:/docker-entrypoint-initdb.d/second.sql
+    command: 
+      --character-set-server=utf8mb4 
+      --collation-server=utf8mb4_unicode_ci 
+      --bind-address=0.0.0.0
+      --init-connect='SET NAMES utf8mb4'
+      --skip-character-set-client-handshake
+    networks:
+      - mysql_network
+
+networks:
+  mysql_network:
+
+volumes:
+  mysql_data:
